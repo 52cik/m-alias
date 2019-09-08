@@ -1,6 +1,6 @@
 {
   "name": "m-alias",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node module alias support (ts paths alias)",
   "main": "index.js",
   "files": [

@@ -67,7 +67,11 @@ function parseAliasPaths() {
  * alias parse for node module
  * @param {string} request module path
  */
-function moduleAliasParse(request) {
+function moduleAliasParse(request = '') {
+  const first = request[0];
+  if (first === '.' || first === '/') {
+    return [request, []];
+  }
   const alias = Object.keys(aliasPaths);
   for (let i = 0; i <= alias.length; i += 1) {
     const name = alias[i];
@@ -81,7 +85,7 @@ function moduleAliasParse(request) {
       return [request.replace(re, './'), aliasPaths[name]];
     }
   }
-  return ['', []];
+  return [request, []];
 }
 
 moduleAliasParse.parseAliasPaths = parseAliasPaths;
